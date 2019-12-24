@@ -1,3 +1,5 @@
+import numpy as np
+
 class MazeMap:
     """A Class that establishes a maze's environment"""
 
