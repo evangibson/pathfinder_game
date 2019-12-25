@@ -3,7 +3,7 @@ import maze_obj
 
 
 class MazeRunner:
-    """Builds a player for navigation through the maize"""
+    """Builds a player for navigation through the maze"""
 
     def __init__(self, human=False):
         # Unique id for player
