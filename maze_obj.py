@@ -18,6 +18,7 @@ class MazeMap:
         self.blank_value = blank
 
 
+
     def random_walls(self, prop_of_walls):
         """Builds walls within a maze based on randomization parameters"""
 
