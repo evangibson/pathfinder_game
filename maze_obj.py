@@ -24,7 +24,8 @@ class MazeMap:
 
         # RESERVED non-uid values. Will help from confusing uids with other value types. Designed to be added to
         self.black_list = list([self.wall_value, self.blank_value])
-        # Default uid
+
+        # Default uid (meant to be iterated sequentially)
         self.next_play_id = 101
 
         # Indices that players can't be placed in
@@ -68,11 +69,12 @@ class MazeMap:
             loop_brake = 0
 
             while int(temp_player_index) in self.forbid_indices[0]:
+                # Propose index for player to occupy
                 temp_player_index = np.random.choice(np.arange(self.maze.size),
                                                      replace=False,
                                                      size=1)
 
-                # To keep the loop from running to infinity
+                # To keep the placeholder loop from running to infinity
                 loop_brake += 1
                 if loop_brake > len(temp_arr):
                     sys.exit("Player Placement Failed! No unreserved space detected")
