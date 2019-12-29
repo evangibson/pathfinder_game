@@ -67,15 +67,15 @@ class MazeMap:
             # Provide stop placeholder for loop
             loop_brake = 0
 
-            while int(temp_player_index) in self.forbid_indices:
+            while int(temp_player_index) in self.forbid_indices[0]:
                 temp_player_index = np.random.choice(np.arange(self.maze.size),
                                                      replace=False,
                                                      size=1)
 
                 # To keep the loop from running to infinity
                 loop_brake += 1
-                if loop_brake > len(temp_array):
-                    sys.exit("Player Placement Failed! No unreserved sapce detected")
+                if loop_brake > len(temp_arr):
+                    sys.exit("Player Placement Failed! No unreserved space detected")
                 else:
                     continue
 
@@ -97,7 +97,7 @@ class MazeMap:
             else:
                 sys.exit("Player Placement Failed! Proposed UID already in black_list")
 
-            self.forbid_indices.append(temp_player_index)
+            self.forbid_indices[0].append(int(temp_player_index))
 
             # Remake original structure
             self.maze = temp_arr.reshape(self.dims)
