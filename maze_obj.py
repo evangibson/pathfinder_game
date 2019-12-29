@@ -88,7 +88,6 @@ class MazeMap:
                 # Carry progress to values list
                 self.black_list.append(self.next_play_id)
 
-                self.next_play_id += 1
 
             elif uid not in self.black_list:
                 temp_arr[temp_player_index] = uid
@@ -103,3 +102,22 @@ class MazeMap:
 
             # Remake original structure
             self.maze = temp_arr.reshape(self.dims)
+
+        if uid is None:
+            self.find_player(self.next_play_id)
+            self.next_play_id += 1
+        else:
+            self.find_player(uid)
+
+    def find_player(self, uid, silent = True):
+        """Can function to find multi-id coordinates, too"""
+        full_loc_list = list()
+
+        for i in range(0, len(np.where(self.maze == uid)[0])):
+            player_loc = list([np.where(self.maze == uid)[0][i], np.where(self.maze == uid)[1][i]])
+            full_loc_list.append(player_loc)
+
+        self.player_positions.update({uid: full_loc_list})
+
+        if silent is False:
+            return dict({uid: full_loc_list})
