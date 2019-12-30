@@ -88,7 +88,6 @@ class MazeMap:
                 # Carry progress to values list
                 self.black_list.append(self.next_play_id)
 
-
             elif uid not in self.black_list:
                 temp_arr[temp_player_index] = uid
 
