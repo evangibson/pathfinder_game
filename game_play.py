@@ -7,12 +7,18 @@ class MazeGame:
         """Works with a MazeMap obj with player positions already assigned"""
         self.play_map = MazeMap_obj
         self.players = dict()
+
         # Create a player object for each uid
         for id in self.play_map.player_positions:
             # Run instantiation actions
             temp_player = player_obj.MazeRunner()
             temp_player.pres_pos = self.play_map.player_positions[id][0]
             self.players.update({id: temp_player})
+
+
+
+    def make_rules(self):
+
 
 
 def main(human_game = False):
