@@ -13,9 +13,13 @@ Such mathematics emphasize the importance of dynamic input from complex environm
 
 This project will host lightweight simulation environments so that a user can experiment with reinforcement learning (RL) schemas under minimal load. 
 
+<br />
+
 _What happens after the framework is established?_
 
 After the PathFinder framework is viable, I will develop various simulations to experiment with various RL schemas. As experiments continue, I will update the PathFinder repository to accommodate increasingly complex simulations that better replicate real-world stimulus.
+
+<br />
 
 _Overall, what can I expect to find in this repository?_
 
