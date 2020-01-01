@@ -3,6 +3,7 @@
 
 Hello Reader! I want this project to serve as a platform for simulation-based reinforcement learning. In other words, this repository should be a platform for studying how actors can learn to overcome challenges without explicit instructions. 
 
+___
 
 _How does this project approach complex learning?_
 
@@ -27,9 +28,12 @@ _Overall, what can I expect to find in this repository?_
 - PathFinder GUI (optional)
   - For visualizing/playing games using the same parameters as a machine-actor
 
+___
 ### Project Status
 
 Right now, I'm currently doing basic functionality tests on the parameters in the mazes. I need to ensure that the maze "physics" don't allow players to execute unexpected behavior (walking through walls, exiting the maze, etc.).
+
+___
 
 ### Goals
 
@@ -37,6 +41,8 @@ Right now, I'm currently doing basic functionality tests on the parameters in th
 - ~~Create players~~
 - Create self training schema (without visualization)
 - Create GUI for human play
+
+___
 
 ### Inspiration
 - [OpenAI](https://www.youtube.com/watch?v=kopoLzvh5jY)
