@@ -17,7 +17,7 @@ class MazeGame:
 
 
 
-    def make_rules(self):
+#    def make_rules(self):
 
 
 
