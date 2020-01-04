@@ -27,7 +27,7 @@ class MazeRunner:
                            "dl": lambda a: [a[0] + self.curr_speed, a[1] - self.curr_speed],
                            "dr": lambda a: [a[0] + self.curr_speed, a[1] + self.curr_speed]})
 
-    def move_action(self, move_direction, speed=1, allow_spaces = None):
+    def move_action(self, move_direction, speed=1):
         """move_direction executes relative position change:
         on a grid, (l,r,d,u) will move the MazeRunner left, right, down, or up,
         respectively.
