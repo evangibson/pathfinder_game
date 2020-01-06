@@ -16,8 +16,53 @@ class MazeGame:
             self.players.update({id: temp_player})
 
 
+    def check_move(nonsense_arg):
+        """Currently functional but needs fine-tuning"""
 
-#    def make_rules(self):
+        pass_val = False
+
+        # Zero bounds check
+        if nonsense_arg[0] >= 0 or nonsense_arg[1] >= 0:
+            pass_val = True
+        else:
+            pass
+
+        # Edges of play area check
+        if nonsense_arg[0] < test_game.play_map.dims[0] - 1 or nonsense_arg[1] < test_game.play_map.dims[1] - 1:
+            pass_val = True
+        else:
+            pass
+
+            # Blank value check
+        if test_game.play_map.maze[nonsense_arg] is test_game.play_map.blank_value:
+            pass_val = True
+        else:
+            pass
+
+        return pass_val
+
+    # Request action from each player
+    def action_request(mazerunner, maze_obj_, allow_spaces=self.maze_obj_.blank_value):
+
+        """UNSTABLE"""
+
+        first_pos = mazerunner.pres_pos
+
+        # Start by requesting move actions
+
+        # Action accepted
+        accept = False
+        while accept is False:
+            mazerunner.move_action(input("Move Direction: "))
+
+            # check value at proposed position
+            if maze_obj_.maze[mazerunner.pres_pos] in allow_spaces:
+
+                maze_obj.maze
+                accept = True
+
+            else:
+                continue
 
 
 
