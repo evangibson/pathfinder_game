@@ -16,7 +16,7 @@ class MazeGame:
             self.players.update({id: temp_player})
 
 
-    def check_move(nonsense_arg):
+    def check_move(self, nonsense_arg):
         """Currently functional but needs fine-tuning"""
 
         pass_val = False
@@ -42,7 +42,7 @@ class MazeGame:
         return pass_val
 
     # Request action from each player
-    def action_request(mazerunner, maze_obj_, allow_spaces=self.maze_obj_.blank_value):
+    def action_request(self, mazerunner, maze_obj_, allow_spaces=self.maze_obj_.blank_value):
 
         """UNSTABLE"""
 
