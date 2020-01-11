@@ -1,5 +1,5 @@
 import numpy as np
-import maze_obj
+from objects import maze_obj
 
 
 class MazeRunner:

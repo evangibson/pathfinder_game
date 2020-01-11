@@ -1,5 +1,5 @@
-import maze_obj
-import player_obj
+from objects import maze_obj
+from objects import player_obj
 
 
 class MazeGame:
