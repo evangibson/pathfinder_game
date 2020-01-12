@@ -15,25 +15,34 @@ class MazeGame:
             temp_player.pres_pos = self.play_map.player_positions[id][0]
             self.players.update({id: temp_player})
 
+        # Reset effort each run of check_move
+        self.last_move_error = list()
 
     def check_move(self, proposed_position):
         """Currently functional but needs fine-tuning"""
-
+        self.last_move_error = list()
         pass_val = False
-
 
         # Edges of play area check
         if proposed_position[0] < self.play_map.dims[0] - 1 or proposed_position[1] < self.play_map.dims[1] - 1:
-            pass_val = True
-        else:
             pass
+        else:
+            # Error code 101 for edges
+            self.last_move_error.append(101)
 
         # Blank value and out-of-bounds check
         # Out of bounds value will produce an index error
         if self.play_map.maze[proposed_position] is self.play_map.blank_value:
+            pass
+        else:
+            # Error code 102 for blank value
+            self.last_move_error.append(102)
+
+        # Final check for true vs. false
+        if len(self.last_move_error) == 0:
             pass_val = True
         else:
-            pass
+            pass_val = False
 
         return pass_val
 
