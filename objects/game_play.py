@@ -16,25 +16,21 @@ class MazeGame:
             self.players.update({id: temp_player})
 
 
-    def check_move(self, nonsense_arg):
+    def check_move(self, proposed_position):
         """Currently functional but needs fine-tuning"""
 
         pass_val = False
 
-        # Zero bounds check
-        if nonsense_arg[0] >= 0 or nonsense_arg[1] >= 0:
-            pass_val = True
-        else:
-            pass
 
         # Edges of play area check
-        if nonsense_arg[0] < test_game.play_map.dims[0] - 1 or nonsense_arg[1] < test_game.play_map.dims[1] - 1:
+        if proposed_position[0] < self.play_map.dims[0] - 1 or proposed_position[1] < self.play_map.dims[1] - 1:
             pass_val = True
         else:
             pass
 
-            # Blank value check
-        if test_game.play_map.maze[nonsense_arg] is test_game.play_map.blank_value:
+        # Blank value and out-of-bounds check
+        # Out of bounds value will produce an index error
+        if self.play_map.maze[proposed_position] is self.play_map.blank_value:
             pass_val = True
         else:
             pass
@@ -42,27 +38,28 @@ class MazeGame:
         return pass_val
 
     # Request action from each player
-    def action_request(self, mazerunner, maze_obj_, allow_spaces=self.maze_obj_.blank_value):
+    def action_request(self, mazerunner):
 
         """UNSTABLE"""
 
+        # Used for overwrite and reverting to original value in the event of a movement failure
         first_pos = mazerunner.pres_pos
 
         # Start by requesting move actions
 
-        # Action accepted
+        # Action acceptance check and loop for correction
         accept = False
         while accept is False:
             mazerunner.move_action(input("Move Direction: "))
 
             # check value at proposed position
-            if maze_obj_.maze[mazerunner.pres_pos] in allow_spaces:
+            if self.play_map.maze[mazerunner.pres_pos] in self.play_map.blank_value:
 
-                maze_obj.maze
+                # Needs statement for overwriting present maze position
                 accept = True
 
             else:
-                continue
+                print("ACTION FAILED. Please try again.")
 
 
 
@@ -76,5 +73,7 @@ def main(human_game = False):
     else:
         print("Spacesaver")
 
-if __name__ == "__main__":
-    main()
+# Still testing. No need to run yet
+
+#if __name__ == "__main__":
+#    main()
