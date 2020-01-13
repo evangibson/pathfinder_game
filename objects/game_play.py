@@ -16,6 +16,7 @@ class MazeGame:
             # Run instantiation actions
             temp_player = player_obj.MazeRunner()
             temp_player.pres_pos = self.play_map.player_positions[id][0]
+            temp_player.id = id
             self.players.update({id: temp_player})
 
 
@@ -83,12 +84,8 @@ class MazeGame:
         # update map with player's new position
         self.play_map.maze[mazerunner.pres_pos[0], mazerunner.pres_pos[1]] = mazerunner.id
 
-
-
-
-
-
-
+        # Update map's player position
+        self.play_map.player_positions[mazerunner.id] = self.players[mazerunner.id].pres_pos
 
 def main(human_game = False):
     if human_game is True:
