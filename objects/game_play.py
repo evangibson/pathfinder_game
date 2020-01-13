@@ -30,13 +30,13 @@ class MazeGame:
             pass
         else:
             # Error code 101 for high bound
-            self.last_move_error.append(101)
+            self.last_move_error.append("e101")
 
         if proposed_position[0] >= 0 and proposed_position[1] >= 0:
             pass
         else:
             # Error code 102 for low bound
-            self.last_move_error.append(102)
+            self.last_move_error.append("e102")
 
         # Blank value and out-of-bounds check
         # Out of bounds value will produce an index error
@@ -45,7 +45,7 @@ class MazeGame:
                 pass
             else:
                 # Error code 103 for blank value
-                self.last_move_error.append(103)
+                self.last_move_error.append("e103")
 
         except (ValueError, IndexError) as e:
             pass
