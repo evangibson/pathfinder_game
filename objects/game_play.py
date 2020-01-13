@@ -40,11 +40,15 @@ class MazeGame:
 
         # Blank value and out-of-bounds check
         # Out of bounds value will produce an index error
-        if self.play_map.maze[proposed_position] == self.play_map.blank_value:
+        try self.play_map.maze[proposed_position]:
+            if self.play_map.maze[proposed_position] == self.play_map.blank_value:
+                pass
+            else:
+                # Error code 103 for blank value
+                self.last_move_error.append(103)
+
+        except ValueError:
             pass
-        else:
-            # Error code 103 for blank value
-            self.last_move_error.append(103)
 
         # Final check for true vs. false
         if len(self.last_move_error) == 0:
