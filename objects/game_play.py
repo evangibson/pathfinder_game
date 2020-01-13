@@ -71,16 +71,22 @@ class MazeGame:
         # Action acceptance check and loop for correction
         accept = False
         while accept is False:
-            mazerunner.move_action(input("Move Direction: "))
+            action = mazerunner.move_action(input("Move Direction: "))
+            accept = self.check_move(action)
 
-            # check value at proposed position
-            if self.play_map.maze[mazerunner.pres_pos] in self.play_map.blank_value:
+            if accept is False:
+                mazerunner.pres_pos = first_pos
 
-                # Needs statement for overwriting present maze position
-                accept = True
+        # Overwrite old position with blank value
+        self.play_map.maze[first_pos[0], first_pos[1]] = self.play_map.blank_value
 
-            else:
-                print("ACTION FAILED. Please try again.")
+        # update map with player's new position
+        self.play_map.maze[mazerunner.pres_pos[0], mazerunner.pres_pos[1]] = mazerunner.id
+
+
+
+
+
 
 
 
