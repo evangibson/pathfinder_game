@@ -23,7 +23,7 @@ def main():
     proportion_walls = float(input("Enter a number between 0 and 1 for the proportion of walls to blank spaces: "))
 
     # Maximum number of turns
-    turns = input("Maximum number of turns: ")
+    turns = int(input("Maximum number of turns: "))
 
 
     # Begin by creating a stable maze and placing one player
