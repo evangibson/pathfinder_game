@@ -1,5 +1,10 @@
-from objects import maze_obj
-from objects import player_obj
+
+try:
+    import maze_obj
+    import player_obj
+except:
+    from objects import maze_obj
+    from objects import player_obj
 
 
 class MazeGame:

@@ -1,10 +1,23 @@
 """Designed to be a grid-maze with random walls and a single player"""
 
 # Import libraries
+import os
+import inspect
 
-from objects import game_play
-from objects import maze_obj
-from objects import player_obj
+# Move to main directory
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+os.chdir(parentdir)
+object_dir = os.path.join(parentdir, "objects")
+
+
+import sys
+sys.path.insert(1, object_dir)
+
+import game_play
+import maze_obj
+import player_obj
+
 
 # Static parameters
 
@@ -40,7 +53,7 @@ def main():
         #print(active_game.play_map.maze, end="\r")
 
         # Use next iter because we assume only one item in player dictionary
-        test_game.action_request(active_game.players[next(iter(active_game.players))])
+        active_game.action_request(active_game.players[next(iter(active_game.players))])
 
     print("GAME OVER")
     print(active_game.play_map.maze)

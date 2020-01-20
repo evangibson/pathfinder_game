@@ -1,5 +1,10 @@
 import numpy as np
-from objects import maze_obj
+
+try:
+    import maze_obj
+except:
+    from objects import maze_obj
+
 
 
 class MazeRunner:
