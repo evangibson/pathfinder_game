@@ -81,6 +81,7 @@ class MazeGame:
             accept = self.check_move(action)
 
             if accept is False:
+                print("Move rejected")
                 mazerunner.pres_pos = first_pos
 
         # Overwrite old position with blank value
