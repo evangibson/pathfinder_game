@@ -47,12 +47,17 @@ def main():
     # Create a current game object using the maze generated above
     active_game = game_play.MazeGame(g_maze)
 
+    # Function to clear console
+    clear = lambda: os.system('cls')
+
     for t in range(0, turns):
         # Giving feedback to the actor
-        #print("Turn {}".format(t), end="\r"))
-        #print(active_game.play_map.maze, end="\r")
+
+        # Clears console to give illusion of maze movement
+        clear()
 
         # Use next iter because we assume only one item in player dictionary
+        print(active_game.play_map.maze)
         active_game.action_request(active_game.players[next(iter(active_game.players))])
 
     print("GAME OVER")
