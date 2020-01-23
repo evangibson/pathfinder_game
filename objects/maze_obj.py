@@ -126,7 +126,7 @@ class MazeMap:
 
     def place_goal(self, point = "random"):
         """If point != "random", argument MUST be a coordinate tuple"""
-        if point != :
+        if point != "random":
             self.maze[point[0]][point[1]] = self.goal_value
 
         else:
