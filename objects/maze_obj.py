@@ -1,5 +1,6 @@
 import numpy as np
 import sys
+from random import randint
 
 
 class MazeMap:
@@ -8,16 +9,18 @@ class MazeMap:
     def __init__(self,
                  dimensions,
                  wall=-1,
-                 blank=0):
+                 blank=0,
+                 goal=-2):
         # Tuple argument for the length and width of the maze
         self.dims = dimensions
 
         # By default, maze will generate as blank
         self.maze = np.zeros(self.dims, dtype=int)
 
-        # Declare wall and blank space values
+        # Declare wall, blank space, and goal values
         self.wall_value = wall
         self.blank_value = blank
+        self.goal_value = goal
 
         # Storage for the wall indices
         self.wall_indices = None
@@ -120,3 +123,19 @@ class MazeMap:
 
         if silent is False:
             return dict({uid: full_loc_list})
+
+    def place_goal(self, point = "random"):
+        """If point != "random", argument MUST be a coordinate tuple"""
+        if point != :
+            self.maze[point[0]][point[1]] = self.goal_value
+
+        else:
+            # Find blank spaces for goal placement
+            curr_blanks = np.where(self.maze == self.blank_value)
+
+            # In a 2d array, curr_blanks should produce two arrays of equal length
+            # Call one value in the range of those arrays to index
+            value = randint(0, len(curr_blanks[0]))
+
+            self.maze[curr_blanks[0][value]][curr_blanks[1][value]] = self.goal_value
+

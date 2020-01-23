@@ -43,6 +43,7 @@ def main():
     g_maze = maze_obj.MazeMap([height, length])
     g_maze.random_walls(proportion_walls)
     g_maze.place_player()
+    g_maze.place_goal()
 
     # Create a current game object using the maze generated above
     active_game = game_play.MazeGame(g_maze)
