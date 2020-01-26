@@ -58,9 +58,12 @@ def main():
         clear()
 
         # Use next iter because we assume only one item in player dictionary
+        print("Current Turn: ", str(t))
         print(active_game.play_map.maze)
         active_game.action_request(active_game.players[next(iter(active_game.players))])
+        print("Turns Remaining: ", str(turns - t))
 
+    clear()
     print("GAME OVER")
     print(active_game.play_map.maze)
 
