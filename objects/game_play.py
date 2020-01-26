@@ -2,6 +2,7 @@
 try:
     import maze_obj
     import player_obj
+
 except:
     from objects import maze_obj
     from objects import player_obj
@@ -15,6 +16,9 @@ class MazeGame:
 
         # Reset effort each run of check_move
         self.last_move_error = list()
+
+        # Number of errors in iteration
+        self.num_errors = 0
 
         # Create a player object for each uid
         for id in self.play_map.player_positions:
@@ -82,6 +86,7 @@ class MazeGame:
             accept = self.check_move(action)
 
             if accept is False:
+                self.num_errors += 1
                 print("Move rejected")
                 mazerunner.pres_pos = first_pos
 

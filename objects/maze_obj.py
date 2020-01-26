@@ -36,6 +36,9 @@ class MazeMap:
 
         self.player_positions = dict()
 
+        # Null until instantiated by place_goal
+        self.goal_position = None
+
     def random_walls(self, prop_of_walls):
         """Builds walls within a maze based on randomization parameters"""
 
@@ -128,6 +131,7 @@ class MazeMap:
         """If point != "random", argument MUST be a coordinate tuple"""
         if point != "random":
             self.maze[point[0]][point[1]] = self.goal_value
+            self.goal_position = tuple([point[0],point[1]])
 
         else:
             # Find blank spaces for goal placement
@@ -138,4 +142,5 @@ class MazeMap:
             value = randint(0, len(curr_blanks[0]))
 
             self.maze[curr_blanks[0][value]][curr_blanks[1][value]] = self.goal_value
+            self.goal_position = tuple([curr_blanks[0][value],curr_blanks[1][value]])
 
