@@ -20,6 +20,9 @@ class MazeGame:
         # Number of errors in iteration
         self.num_errors = 0
 
+        # Indicator for reaching goal
+        self.reach_goal = False
+
         # Create a player object for each uid
         for id in self.play_map.player_positions:
             # Run instantiation actions
@@ -48,16 +51,22 @@ class MazeGame:
             # Error code 102 for low bound
             self.last_move_error.append("e102")
 
-        # Blank value and out-of-bounds check
+        # Blank value and goal check
         # Out of bounds value will produce an index error
         try:
-            if self.play_map.maze[proposed_position[0], proposed_position[1]] == self.play_map.blank_value:
+            if self.play_map.maze[proposed_position[0], proposed_position[1]] in [self.play_map.blank_value, self.play_map.goal_value]:
                 pass
             else:
                 # Error code 103 for blank value
                 self.last_move_error.append("e103")
 
         except (ValueError, IndexError) as e:
+            pass
+
+        # Win check. Doesn't throw error for failure to pass
+        if self.play_map.maze[proposed_position[0], proposed_position[1]] == self.play_map.goal_value:
+            self.reach_goal = True
+        else:
             pass
 
         # Final check for true vs. false

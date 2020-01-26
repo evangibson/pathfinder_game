@@ -24,7 +24,8 @@ import player_obj
 ## Score multiplier for number of times player hits wall
 wall_penalty_coef = 2
 
-# Create starting input parameters
+# Default value for non-match
+reach_goal_match = 0
 
 # Simple computation functions
 
@@ -68,27 +69,47 @@ def main():
 
     # Game completion indicator
     game_win = False
-    while game_win is False:
-        for t in range(0, turns):
-            # Giving feedback to the actor
-            score = -t - wall_penalty_coef*active_game.num_errors - pth_theorem(active_game.players[next(iter(active_game.players))].pres_pos, active_game.play_map.goal_position)
 
-            # Clears console to give illusion of maze movement
-            clear()
 
-            # Use next iter because we assume only one item in player dictionary
-            print("Current Turn: ", str(t))
-            print("Score: ",  str(score))
-            print(active_game.play_map.maze)
-            active_game.action_request(active_game.players[next(iter(active_game.players))])
-            print("Turns Remaining: ", str(turns - t))
+    for t in range(0, turns):
+        # Giving feedback to the actor
 
-            if t == turns:
-                break
+        wp = wall_penalty_coef * active_game.num_errors
+        dt = pth_theorem(active_game.players[next(iter(active_game.players))].pres_pos,
+                         active_game.play_map.goal_position)
+        score = -t - wp - dt
+
+        # Clears console to give illusion of maze movement
+        clear()
+
+        # Use next iter because we assume only one item in player dictionary
+        print("Current Turn: ", str(t))
+        print("Distance to Target: ", str(dt))
+        print("Penalty Score: ", str(wp))
+        print("Score: ",  str(score))
+        print(active_game.play_map.maze)
+        active_game.action_request(active_game.players[next(iter(active_game.players))])
+        print("Turns Remaining: ", str(turns - t))
+
+        #
+        final_turns = t
+        if active_game.reach_goal is True:
+            # Arbitrary scoring for reward
+            reach_goal_match = 10
+            break
+
+        else:
+            pass
 
     clear()
     print("GAME OVER")
-    print("Final Score: ", str(score))
+
+    wp = wall_penalty_coef * active_game.num_errors
+    dt = pth_theorem(active_game.players[next(iter(active_game.players))].pres_pos,
+                     active_game.play_map.goal_position)
+    final_score = reach_goal_match-final_turns - wp - dt
+
+    print("Final Score: ", str(final_score))
     print(active_game.play_map.maze)
 
 

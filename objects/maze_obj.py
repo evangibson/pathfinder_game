@@ -139,7 +139,7 @@ class MazeMap:
 
             # In a 2d array, curr_blanks should produce two arrays of equal length
             # Call one value in the range of those arrays to index
-            value = randint(0, len(curr_blanks[0]))
+            value = randint(0, len(curr_blanks[0])-1)
 
             self.maze[curr_blanks[0][value]][curr_blanks[1][value]] = self.goal_value
             self.goal_position = tuple([curr_blanks[0][value],curr_blanks[1][value]])
