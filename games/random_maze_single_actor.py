@@ -95,11 +95,12 @@ def main():
         final_turns = t
         if active_game.reach_goal is True:
             # Arbitrary scoring for reward
+            # This variable shadowing is intentional
             reach_goal_match = 10
             break
 
         else:
-            pass
+            reach_goal_match = 0
 
     clear()
     print("GAME OVER")
