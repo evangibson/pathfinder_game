@@ -57,18 +57,40 @@ Score:  -1.4142135623730951
  [  0   0   0   0]]
 Move Direction:
 ```
-Legend (using defaults):
-- 0: Empty Space
-- -1: Wall
-- -2: Goal
-- 101: Player position
+  Legend (using defaults):
+  - 0: Empty Space
+  - -1: Wall
+  - -2: Goal
+  - 101: Player position
 
+_Player is only allowed to execute one of the following actions_:
+- r - Traverse one space to the right ➡️
+- l - Traverse one space to the left ⬅️
+- u - Traverse one space up ⬆️
+- d - Traverse one space down ⬇️
+- ur - Traverse one space up and one space to the right ↗️
+- ul - Traverse one space up and one space to the left ↖️
+- dl - Traverse one space down and one space to the left ↙️
+- dr - Traverse one space down and one space to the right ↘️
+
+The game ends when the player executes a move onto the goal space or the max turns parameter is met. 
+
+Scoring is calculated as:
+
+🔧 Give me  minute. I'm not so good at math notation in MD
+
+Verbally, it is the negative turns minus the Euclidean distance from the player to the goal minus two multiplied by the number of penalties.
+   
+  
 ___
 
 ### Goals
 
 - ~~Create maze environment~~
 - ~~Create players~~
+- ~~Create Single player game~~
+  - ~~Create Scoring Schema~~
+  - ~~Create Feedback Printer~~
 - Create self training schema (without visualization)
 - Create GUI for human play
 
