@@ -7,11 +7,13 @@ ___
 
 _How does this project approach complex learning?_
 
-An actor that can optimize its own "path" from Point A to Point B is undoubtedly useful. Machines that can take sensor input and develop idealized solutions to problems will find themselves replacing human actors in many career fields. Until recently, machine-based automation was limited to simple, repetitive tasks; programming involved series of "if-then" conditions. As our computing resources advance, we are refining mathematics with the understanding that we can realize significantly more complex methods of automation.
+An actor that can optimize its own "path" from Point A to Point B is undoubtedly useful. Machines that can take sensor input and develop idealized solutions to problems will find themselves replacing human actors in many fields. Until recently, machine-based automation was limited to simple, repetitive tasks; programming involved series of "if-then" conditions. As our computing resources advance, we are refining mathematics with the understanding that we can realize significantly more complex methods of automation.
 
 Such mathematics emphasize the importance of dynamic input from complex environments.  
 
 This project will host lightweight simulation environments so that a user can experiment with reinforcement learning (RL) schemas under minimal load. 
+
+In its end state, this environment will serve as the basepoint for real-world simulations that cannot undergo millions of training instances prior to application.
 
 <br />
 
@@ -29,7 +31,7 @@ _Overall, what can I expect to find in this repository?_
   - Single-actor maze games
   - Multi-actor communication challenges
   - Adversarial "capture-the-flag" games
-- PathFinder GUI (optional)
+- PathFinder GUI 
   - For visualizing/playing games using the same parameters as a machine-actor
 
 ___
