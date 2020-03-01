@@ -64,9 +64,14 @@ class MazeGame:
             pass
 
         # Win check. Doesn't throw error for failure to pass
-        if self.play_map.maze[proposed_position[0], proposed_position[1]] == self.play_map.goal_value:
-            self.reach_goal = True
-        else:
+
+        try:
+            if self.play_map.maze[proposed_position[0], proposed_position[1]] == self.play_map.goal_value:
+                self.reach_goal = True
+            else:
+                pass
+        except(IndexError):
+            # We don't need to append an additional error because this behavior will already be caught by e101
             pass
 
         # Final check for true vs. false

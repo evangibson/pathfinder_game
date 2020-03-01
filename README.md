@@ -28,7 +28,7 @@ _Overall, what can I expect to find in this repository?_
 - PathFinder schema
   - Emphasizes actors finding their way through two-dimensional environments given a variety of stimulus and challenges
 - PathFinder-based experiments
-  - Single-actor maze games
+  - [Single-actor maze games](https://github.com/evangibson/pathfinder_game/tree/master/games/random_maze_single_actor.py)
   - Multi-actor communication challenges
   - Adversarial "capture-the-flag" games
 - PathFinder GUI 
@@ -37,14 +37,62 @@ _Overall, what can I expect to find in this repository?_
 ___
 ### Project Status
 
-Right now, I'm currently doing basic functionality tests on the parameters in the mazes. I need to ensure that the maze "physics" don't allow players to execute unexpected behavior (walking through walls, exiting the maze, etc.).
+The [first maze game]((https://github.com/evangibson/pathfinder_game/tree/master/games/random_maze_single_actor.py)) is simple. An actor starts in a random position after he/she determines the initial maze parameters (length of maze, height of maze, proportion of walls to "empty spaces", and the maximum number of turns before game over): 
 
+```
+Enter a positive, whole number for the length of the maze: 4
+Enter a positive, whole number for the height of the maze: 4
+Enter a number between 0 and 1 for the proportion of walls to blank spaces: .1
+Max Number of Turns: 10
+```
+The length, height, and maximum number of turns should be entered as positive, whole numbers. The proportion should be a number between 0 and 1.  
+
+After these prompts are filled, the user is given a view of the maze's state space:
+```
+Current Turn:  0
+Distance to Target:  1.4142135623730951
+Penalty Score:  0
+Score:  -1.4142135623730951
+[[  0   0   0   0]
+ [  0  -2   0   0]
+ [101   0   0  -1]
+ [  0   0   0   0]]
+Move Direction:
+```
+  Legend (using defaults):
+  - 0: Empty Space
+  - -1: Wall
+  - -2: Goal
+  - 101: Player position
+
+_Player is only allowed to execute one of the following actions_:
+- r - Traverse one space to the right ➡️
+- l - Traverse one space to the left ⬅️
+- u - Traverse one space up ⬆️
+- d - Traverse one space down ⬇️
+- ur - Traverse one space up and one space to the right ↗️
+- ul - Traverse one space up and one space to the left ↖️
+- dl - Traverse one space down and one space to the left ↙️
+- dr - Traverse one space down and one space to the right ↘️
+
+The game ends when the player executes a move onto the goal space or the max turns parameter is met. 
+
+Scoring is calculated as:
+
+🔧 Give me  minute. I'm not so good at math notation in MD
+
+Verbally, it is the negative turns minus the Euclidean distance from the player to the goal minus two multiplied by the number of penalties.
+   
+  
 ___
 
 ### Goals
 
 - ~~Create maze environment~~
 - ~~Create players~~
+- ~~Create Single player game~~
+  - ~~Create Scoring Schema~~
+  - ~~Create Feedback Printer~~
 - Create self training schema (without visualization)
 - Create GUI for human play
 

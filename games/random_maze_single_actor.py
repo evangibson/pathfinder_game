@@ -105,6 +105,7 @@ def main():
     clear()
     print("GAME OVER")
 
+    # This overwrites the final wp for the last bit of feedback
     wp = wall_penalty_coef * active_game.num_errors
     dt = pth_theorem(active_game.players[next(iter(active_game.players))].pres_pos,
                      active_game.play_map.goal_position)
